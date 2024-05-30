@@ -8,6 +8,8 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { cn } from "@/lib/utils";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -22,16 +24,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={font.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
         <ClerkProvider>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            storageKey="discord-theme"
+          >
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            {children}
+          </ThemeProvider>
         </ClerkProvider>
       </body>
     </html>
