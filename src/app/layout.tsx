@@ -3,6 +3,7 @@ import { Inter, Open_Sans } from "next/font/google";
 import "./globals.css";
 import {
   ClerkProvider,
+  RedirectToSignIn,
   SignInButton,
   SignedIn,
   SignedOut,
@@ -33,13 +34,10 @@ export default function RootLayout({
             enableSystem
             storageKey="discord-theme"
           >
+            <SignedIn>{children}</SignedIn>
             <SignedOut>
-              <SignInButton />
+              <RedirectToSignIn />
             </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-            {children}
           </ThemeProvider>
         </ClerkProvider>
       </body>
