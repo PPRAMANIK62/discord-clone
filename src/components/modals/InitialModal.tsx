@@ -49,7 +49,7 @@ const InitialModal = () => {
     console.log(values);
   };
 
-  if(!isMounted) return null;
+  if (!isMounted) return null;
 
   return (
     <Dialog open>
