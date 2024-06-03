@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
-import "./globals.css";
-import {
-  ClerkProvider,
-  RedirectToSignIn,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import ModalProvider from "@/components/providers/ModalProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
+import { Open_Sans } from "next/font/google";
+import "./globals.css";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -34,10 +28,8 @@ export default function RootLayout({
             enableSystem
             storageKey="discord-theme"
           >
-            <SignedIn>{children}</SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            <ModalProvider />
+            {children}
           </ThemeProvider>
         </ClerkProvider>
       </body>
