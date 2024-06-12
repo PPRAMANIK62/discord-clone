@@ -59,19 +59,7 @@ CREATE TABLE "Channel" (
 CREATE UNIQUE INDEX "Profile_userId_key" ON "Profile"("userId");
 
 -- CreateIndex
-CREATE INDEX "Server_profileId_idx" ON "Server"("profileId");
-
--- CreateIndex
-CREATE INDEX "Member_profileId_idx" ON "Member"("profileId");
-
--- CreateIndex
-CREATE INDEX "Member_serverId_idx" ON "Member"("serverId");
-
--- CreateIndex
-CREATE INDEX "Channel_profileId_idx" ON "Channel"("profileId");
-
--- CreateIndex
-CREATE INDEX "Channel_serverId_idx" ON "Channel"("serverId");
+CREATE UNIQUE INDEX "Server_inviteCode_key" ON "Server"("inviteCode");
 
 -- AddForeignKey
 ALTER TABLE "Server" ADD CONSTRAINT "Server_profileId_fkey" FOREIGN KEY ("profileId") REFERENCES "Profile"("id") ON DELETE CASCADE ON UPDATE CASCADE;
