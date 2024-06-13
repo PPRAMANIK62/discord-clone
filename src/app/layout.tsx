@@ -1,4 +1,5 @@
 import ModalProvider from "@/components/providers/ModalProvider";
+import { SocketProvider } from "@/components/providers/SocketProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -28,8 +29,10 @@ export default function RootLayout({
             enableSystem
             storageKey="discord-theme"
           >
-            <ModalProvider />
-            {children}
+            <SocketProvider>
+              <ModalProvider />
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </ClerkProvider>
       </body>
