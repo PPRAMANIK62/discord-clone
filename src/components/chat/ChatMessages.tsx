@@ -7,6 +7,7 @@ import { Loader2, ServerCrash } from "lucide-react";
 import { Fragment } from "react";
 import ChatItem from "./ChatItem";
 import ChatWelcome from "./ChatWelcome";
+import { useChatSocket } from "@/hooks/useChatSocket";
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
@@ -38,6 +39,8 @@ const ChatMessages = ({
   type,
 }: ChatMessagesProps) => {
   const queryKey = `chat:${chatId}`;
+  const addkey = `chat:${chatId}:messages`;
+  const updateKey = `chat:${chatId}:messages:update`;
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useChatQuery({
@@ -46,6 +49,8 @@ const ChatMessages = ({
       paramKey,
       paramValue,
     });
+
+  useChatSocket({ queryKey, addkey, updateKey });
 
   if (status === "pending")
     return (
