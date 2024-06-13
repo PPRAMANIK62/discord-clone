@@ -1,4 +1,5 @@
 import ModalProvider from "@/components/providers/ModalProvider";
+import { QueryProvider } from "@/components/providers/QueryProvider";
 import { SocketProvider } from "@/components/providers/SocketProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { cn } from "@/lib/utils";
@@ -31,7 +32,7 @@ export default function RootLayout({
           >
             <SocketProvider>
               <ModalProvider />
-              {children}
+              <QueryProvider>{children}</QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </ClerkProvider>
