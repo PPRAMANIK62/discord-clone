@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CreateChannelModal from "../modals/CreateChannelModal";
 import CreateServerModal from "../modals/CreateServerModal";
 import DeleteChannelModal from "../modals/DeleteChannelModal";
+import DeleteMessageModal from "../modals/DeleteMessageModal";
 import DeleteServerModal from "../modals/DeleteServerModal";
 import EditChannelModal from "../modals/EditChannelModal";
 import EditServerModal from "../modals/EditServerModal";
@@ -32,6 +33,7 @@ const ModalProvider = () => {
       <DeleteChannelModal />
       <EditChannelModal />
       <MessageFileModal />
+      <DeleteMessageModal />
     </>
   );
 };
