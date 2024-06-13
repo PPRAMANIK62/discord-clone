@@ -1,12 +1,12 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { Plus, Smile } from "lucide-react";
+import qs from "query-string";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import axios from "axios";
-import qs from "query-string";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
-import { Plus, Smile } from "lucide-react";
 import { Input } from "../ui/input";
 
 interface ChatInputProps {
