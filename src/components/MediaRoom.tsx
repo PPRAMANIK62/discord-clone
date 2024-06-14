@@ -60,7 +60,7 @@ const MediaRoom = ({ audio, chatId, video }: MediaRoomProps) => {
         console.error(error);
       }
     })();
-  }, [user?.firstName, user?.lastName, chatId, isLoaded]);
+  }, [user, user?.firstName, user?.lastName, chatId, isLoaded]);
 
   if (!isLoaded || token === "")
     return (
